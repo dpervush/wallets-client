@@ -1,0 +1,36 @@
+.wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 20;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  min-height: 100vh;
+
+  overflow: hidden;
+  backdrop-filter: blur(5px);
+  background: rgba(20, 34, 79, 0.8);
+}
+.content {
+  position: relative;
+  min-width: 300px;
+  padding: 30px;
+
+  background: #f1f2fa;
+  border-radius: 45px;
+}
+.close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  background-color: transparent;
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+}

@@ -1,0 +1,43 @@
+@import "styles/vars.scss";
+
+.block {
+  margin-bottom: 55px;
+
+  font-family: $secondFont;
+  font-weight: 500;
+  font-size: 12px;
+  color: #ffffff;
+}
+.title {
+  margin-bottom: 20px;
+
+  font-size: 24px;
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 17px;
+}
+.content {
+  text-align: center;
+}
+.name {
+  flex: 0 0 140px;
+}
+.date {
+  flex: 0 0 100px;
+}
+.gap {
+  flex: 1 0 auto;
+}
+.category {
+  flex: 0 0 140px;
+}
+.card {
+  flex: 0 0 75px;
+}
+.amount {
+  flex: 0 0 165px;
+}

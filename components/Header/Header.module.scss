@@ -1,0 +1,64 @@
+@import "styles/vars.scss";
+
+.header {
+  height: 90px;
+  grid-column: span 2;
+}
+.container {
+  max-width: 1120px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  height: 100%;
+}
+.menu {
+  flex: 0 0 130px;
+
+  display: flex;
+  align-items: center;
+  align-self: flex-end;
+
+  padding-bottom: 10px;
+  padding-left: 30px;
+  span {
+    margin-left: 10px;
+
+    font-family: $secondFont;
+    font-weight: 500;
+    font-size: 12px;
+    color: #ffffff;
+  }
+}
+.nav {
+  &_list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &_item {
+    margin-left: 55px;
+    span {
+      margin-left: 10px;
+    }
+    svg {
+      transform: translateY(1px);
+    }
+  }
+  &_link {
+    font-family: $secondFont;
+    font-weight: 500;
+    font-size: 12px;
+    color: inherit;
+    opacity: 0.5;
+
+    &.active {
+      opacity: 1;
+    }
+  }
+}

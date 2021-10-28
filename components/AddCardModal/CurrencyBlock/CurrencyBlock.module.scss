@@ -1,0 +1,60 @@
+@import "styles/vars.scss";
+
+.body {
+  font-family: $secondFont;
+  color: #081945;
+}
+.subtitle {
+  margin-bottom: 20px;
+
+  font-weight: 500;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #081945;
+}
+.checkbox.visually_hidden,
+.radio.visually_hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+.radio {
+  width: 40px;
+  height: 40px;
+}
+.currencies {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 20px;
+}
+.currency {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+
+  border-radius: 50%;
+}
+.currency {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 50px;
+  height: 50px;
+
+  color: #ffffff;
+  background-color: rgba(4, 24, 75, 0.6);
+}
+.radio:checked + .currency {
+  background-color: rgba(4, 24, 75, 0.3);
+}
+.btn_wrapper {
+  text-align: right;
+}

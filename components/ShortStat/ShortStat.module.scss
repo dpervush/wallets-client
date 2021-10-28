@@ -1,0 +1,23 @@
+@import "styles/vars.scss";
+
+.wrapper {
+  padding: 37px 64px 70px 100px;
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 40px;
+}
+.title {
+  font-family: $secondFont;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 22px;
+}
+.posts {
+  display: flex;
+  justify-content: space-between;
+}

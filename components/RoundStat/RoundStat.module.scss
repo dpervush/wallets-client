@@ -1,0 +1,58 @@
+@import "styles/vars.scss";
+
+.wrapper {
+  position: relative;
+  padding: 50px 39px 30px 35px;
+}
+.settings {
+  position: absolute;
+  top: 34px;
+  left: 50px;
+}
+.canvas {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+  padding-top: 15px;
+}
+.goals {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 330px;
+  margin: 0 auto;
+  padding: 16px 28px;
+
+  border: 2px solid #22305f;
+  border-radius: 31px;
+
+  .coins {
+    svg {
+      width: 44px;
+      height: 44px;
+    }
+  }
+}
+.text {
+  padding: 0 30px;
+
+  font-family: $secondFont;
+  font-weight: 500;
+  font-size: 16px;
+  text-align: left;
+}
+.btn {
+  width: 25px;
+  height: 26px;
+  padding: 4px;
+  line-height: 1;
+
+  border: 2px solid #e6dd9c;
+  border-radius: 11px;
+  background-color: transparent;
+
+  svg {
+    width: 14px;
+    height: 14px;
+  }
+}

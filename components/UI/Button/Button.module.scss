@@ -1,0 +1,26 @@
+@import "styles/vars.scss";
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border: 2px solid #22305f;
+  background-color: transparent;
+  border-radius: 25px;
+  color: inherit;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: auto;
+  }
+}
+.text {
+  font-family: $secondFont;
+  font-weight: 500;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+.icon + .text {
+  margin-left: 8px;
+}

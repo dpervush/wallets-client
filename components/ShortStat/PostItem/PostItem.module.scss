@@ -1,0 +1,41 @@
+@import "styles/vars.scss";
+
+.post {
+  width: 6px;
+}
+.top {
+  position: relative;
+  width: 100%;
+  height: 114px;
+
+  margin-bottom: 13px;
+
+  border-radius: 10px;
+  overflow: hidden;
+}
+.bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+.color {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  background-color: $blue;
+  border-radius: 10px;
+}
+.bottom {
+  width: 100%;
+
+  border-radius: 10px;
+  background-color: $pink;
+}

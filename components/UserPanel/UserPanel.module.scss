@@ -1,0 +1,66 @@
+@import "styles/vars.scss";
+
+.panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  min-width: 130px;
+  margin-left: 10px;
+}
+.notification {
+  position: relative;
+  span {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    top: -3px;
+    right: -1px;
+
+    background: #24dffe;
+    border-radius: 50%;
+  }
+}
+.user {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 42px;
+  height: 42px;
+
+  background: #373e3f;
+  border-radius: 50%;
+}
+.actions {
+  position: absolute;
+  right: 0;
+  bottom: -10px;
+  z-index: 10;
+
+  min-width: 150px;
+  padding: 20px 20px;
+
+  text-align: center;
+
+  border: 2px solid #22305f;
+  border-radius: 25px;
+  background-color: #081945;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(100%);
+  transition: all 0.3s;
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &_btn {
+    font-family: $secondFont;
+    color: inherit;
+    background-color: transparent;
+  }
+}

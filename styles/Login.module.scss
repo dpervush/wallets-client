@@ -1,0 +1,84 @@
+@import "vars.scss";
+
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+}
+.container {
+  flex: 0 1 470px;
+}
+.title {
+  margin-bottom: 65px;
+
+  font-family: $secondFont;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 32px;
+  text-align: center;
+}
+.form_item {
+  &_input {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+
+    margin-bottom: 12px;
+  }
+}
+.input {
+  display: block;
+  width: 100%;
+  padding: 12px 10px;
+
+  font-family: $secondFont;
+  font-weight: 500;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.8);
+
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 6px;
+
+  &::placeholder {
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.8);
+  }
+}
+.info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin: 20px 0 40px;
+}
+.register,
+.reset {
+  font-family: $secondFont;
+  font-weight: 500;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+}
+.link {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: underline;
+}
+.submit_btn {
+  width: 100%;
+  padding: 13px 0;
+
+  font-family: $secondFont;
+  font-weight: bold;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: rgb(255, 255, 255);
+
+  background: #8a16ff;
+  border-radius: 25px;
+}

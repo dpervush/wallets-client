@@ -1,0 +1,139 @@
+@import "styles/vars.scss";
+
+.card {
+  position: relative;
+  width: 246px;
+  height: 90px;
+  margin-bottom: 20px;
+  padding: 18px 23px 35px 23px;
+
+  transition: all 0.5s;
+  border-radius: 32px;
+}
+
+.card.active {
+  padding-top: 23px;
+  height: 168px;
+
+  .system {
+    height: 30px;
+    margin-bottom: 17px;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .more {
+    top: 25px;
+  }
+
+  .balance {
+    margin-bottom: 20px;
+  }
+}
+
+.system {
+  position: relative;
+  width: 50px;
+  height: 0px;
+  margin-bottom: 0px;
+
+  background: linear-gradient(
+      114.55deg,
+      rgba(255, 255, 255, 0.3) 12.36%,
+      rgba(255, 255, 255, 0) 107.78%
+    ),
+    rgba(255, 255, 255, 0.1);
+  border-radius: 11px;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition: all 0.5s;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+
+    width: 11px;
+    height: 11px;
+
+    border-radius: 50%;
+  }
+  &::after {
+    background: rgba(255, 255, 255, 0.2);
+    left: 50%;
+    transform: translate(-2px, -50%);
+  }
+  &::before {
+    background: rgba(255, 255, 255, 0.6);
+    right: 50%;
+    transform: translate(2px, -50%);
+  }
+}
+
+.more {
+  position: absolute;
+  top: 18px;
+  right: 23px;
+  z-index: 2;
+
+  display: flex;
+
+  width: 24px;
+  height: 11px;
+  padding: 4px 3px;
+
+  cursor: pointer;
+  transition: all 0.5s;
+
+  span {
+    left: 392px;
+    top: 256px;
+
+    width: 4px;
+    height: 4px;
+    margin-left: 3px;
+
+    background-color: #ffffff;
+    border-radius: 50%;
+  }
+}
+
+.actions {
+  position: absolute;
+  top: 55px;
+  right: 23px;
+
+  text-align: right;
+
+  & .btn {
+    display: block;
+    margin: 0 0 7px auto;
+
+    font-family: $secondFont;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: transparent;
+  }
+}
+
+.balance {
+  margin-bottom: 5px;
+
+  font-family: $accentFont;
+  font-size: 28px;
+  line-height: 34px;
+
+  transition: all 0.5s;
+}
+.title {
+  font-family: $accentFont;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+
+  color: rgba(255, 255, 255, 0.6);
+}

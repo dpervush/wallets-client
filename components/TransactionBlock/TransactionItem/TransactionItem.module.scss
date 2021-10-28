@@ -1,0 +1,90 @@
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  min-height: 38px;
+  margin-bottom: 11px;
+}
+.content {
+  text-align: center;
+}
+.name {
+  flex: 0 0 140px;
+  text-align: left;
+}
+.date {
+  flex: 0 0 100px;
+}
+.gap {
+  flex: 1 0 auto;
+}
+.category {
+  flex: 0 0 140px;
+
+  span {
+    display: inline-block;
+    padding: 9px 14px;
+
+    border: 2px solid #22305f;
+    box-sizing: border-box;
+    border-radius: 25px;
+  }
+}
+.card {
+  flex: 0 0 75px;
+
+  span {
+    display: inline-block;
+    width: 46px;
+    height: 18px;
+
+    border-radius: 6px;
+  }
+}
+.amount {
+  flex: 0 0 165px;
+
+  display: flex;
+  align-items: center;
+
+  .text {
+    position: relative;
+    flex: 1 1 0;
+
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all 0.5s;
+  }
+
+  &:hover {
+    & .text {
+      left: 0;
+      transform: translateX(0);
+    }
+
+    & .edit,
+    & .delete {
+      transform: translateX(0);
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  & .edit,
+  & .delete {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateX(200%);
+    transition: all 0.5s;
+    cursor: pointer;
+    background-color: transparent;
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+  & .delete {
+    margin-left: 13px;
+  }
+}

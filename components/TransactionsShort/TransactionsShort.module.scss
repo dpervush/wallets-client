@@ -1,0 +1,18 @@
+@import "/styles/vars.scss";
+
+.transactions {
+  padding: 47px 30px 20px 30px;
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 22px;
+}
+.title,
+.all {
+  font-family: $secondFont;
+  font-weight: 500;
+  font-size: 12px;
+}

@@ -1,0 +1,40 @@
+.layout {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.wrapper {
+  display: grid;
+  grid-template-columns: 260px 940px;
+  grid-template-rows: 90px 1fr;
+
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+}
+.cards_list {
+  margin-top: 45px;
+  margin-left: 30px;
+}
+.container {
+  position: relative;
+  grid-column: 2 / 2;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+
+    width: 100vw;
+    height: 100%;
+
+    background: #081945;
+    border-top-left-radius: 53px;
+  }
+}
