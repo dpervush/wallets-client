@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const API_URL = "http://localhost:8080/api";
+export const API_URL = "https://wallets-server.herokuapp.com/api";
 
 const $api = axios.create({
   withCredentials: true,
