@@ -58,6 +58,7 @@ export const getServerSideProps = async (context) => {
   let isAuth = false;
   let user = {};
 
+  console.log(context.req.headers.cookie);
   const cookie = getValueFromCookie("refreshToken", context.req.headers.cookie);
 
   await $api
