@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const API_URL = "https://wallets-server.herokuapp.com/api";
+export const API_URL = "https://wallets-pt.vercel.app/api";
 
 const $api = axios.create({
   withCredentials: true,

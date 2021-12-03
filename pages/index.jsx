@@ -68,7 +68,7 @@ export const getServerSideProps = async (context) => {
       user = response.data.currentUser;
     })
     .catch((err) => {
-      console.log(err);
+      // console.log(err);
       isAuth = false;
     });
 
