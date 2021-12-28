@@ -1,0 +1,69 @@
+@import "styles/vars.scss";
+
+.body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 30px;
+
+  font-family: $secondFont;
+  color: #081945;
+}
+.subtitle {
+  margin-bottom: 20px;
+
+  font-weight: 500;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #081945;
+}
+.checkbox.visually_hidden,
+.radio.visually_hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+.radio {
+  width: 40px;
+  height: 40px;
+}
+.icons {
+  flex: 1 1 auto;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-auto-rows: 50px;
+  align-items: center;
+
+  margin-bottom: 20px;
+}
+.icon {
+  position: relative;
+  flex: 0 0 20%;
+  display: inline-block;
+  margin: 3px 0px;
+
+  text-align: center;
+}
+.icon_item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+
+  width: 37px;
+  height: 37px;
+
+  color: #ffffff;
+  background-color: rgba(4, 24, 75, 0.6);
+  border-radius: 50%;
+}
+.radio:checked + .icon_item {
+  background-color: rgba(4, 24, 75, 0.3);
+}
+.btn_wrapper {
+  text-align: right;
+}

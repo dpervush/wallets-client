@@ -3,10 +3,10 @@ import React from "react";
 export function useOnClickOutside(ref, handler) {
   React.useEffect(() => {
     const listener = (event) => {
-      if (!ref.current || ref.current.contains(event.target)) {
+      if (ref.current && !ref.current.contains(event.target)) {
+        handler(event);
         return;
       }
-      handler(event);
     };
     document.addEventListener("mousedown", listener);
     document.addEventListener("touchstart", listener);

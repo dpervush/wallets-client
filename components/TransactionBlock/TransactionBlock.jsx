@@ -1,24 +1,26 @@
 import React from "react";
+import { SwipeableList } from "@sandstreamdev/react-swipeable-list";
+
+import TransactionItem from "./TransactionItem/TransactionItem";
+import { monthNamesLong } from "../../utils/constants";
+import { bodyWidth, isTouchDevice } from "../../utils";
 
 import styles from "./TransactionBlock.module.scss";
-import TransactionItem from "./TransactionItem/TransactionItem";
 
-const monthNamesLong = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
+const SwipeableWrapper = ({ children }) => {
+  if (isTouchDevice || bodyWidth < 710) {
+    return <SwipeableList>{children}</SwipeableList>;
+  } else {
+    return <div>{children}</div>;
+  }
+};
 
-const TransactionBlock = ({ items }) => {
+const TransactionBlock = ({
+  items,
+  lastTransactionRef,
+  categoriesExpense,
+  categoriesIncome
+}) => {
   const parsedItems = Object.keys(items).reduce((obj, key) => {
     const dataArray = Object.keys(items[key]).reduce((objYear, keyMonth) => {
       objYear.push({ month: +keyMonth, transactions: items[key][keyMonth] });
@@ -28,7 +30,7 @@ const TransactionBlock = ({ items }) => {
 
     obj.push({
       year: key,
-      data: dataArray,
+      data: dataArray
     });
 
     return obj;
@@ -49,9 +51,17 @@ const TransactionBlock = ({ items }) => {
             <div className={styles.card}>Card</div>
             <div className={styles.amount}>Amount</div>
           </div>
-          {blockData.transactions.map((item) => (
-            <TransactionItem key={item.id} {...item} />
-          ))}
+          <SwipeableWrapper>
+            {blockData.transactions.map((item) => (
+              <TransactionItem
+                key={item.id}
+                {...item}
+                lastTransactionRef={lastTransactionRef}
+                categoriesExpense={categoriesExpense}
+                categoriesIncome={categoriesIncome}
+              />
+            ))}
+          </SwipeableWrapper>
         </div>
       </div>
     );

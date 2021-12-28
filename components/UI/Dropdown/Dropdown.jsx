@@ -16,11 +16,10 @@ const Dropdown = ({ title, list, resetThenSet }) => {
   };
 
   const selectItem = (item) => {
-    const { title, id, key } = item;
+    const { title, id, key, as } = item;
 
     setIsListOpen(false);
-    setHeaderTitle(title);
-
+    setHeaderTitle(as || title);
     resetThenSet(id, list);
   };
 

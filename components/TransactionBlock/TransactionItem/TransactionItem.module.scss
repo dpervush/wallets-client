@@ -1,10 +1,15 @@
+@import "styles/base/mixins.scss";
+
+.row_wrapper {
+  margin-bottom: 11px;
+}
 .row {
   display: flex;
   align-items: center;
   justify-content: space-between;
 
+  width: 100%;
   min-height: 38px;
-  margin-bottom: 11px;
 }
 .content {
   text-align: center;
@@ -54,7 +59,26 @@
 
     left: 50%;
     transform: translateX(-50%);
-    transition: all 0.5s;
+    transition: all 0.4s;
+  }
+
+  & .edit,
+  & .delete {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateX(200%);
+    transition: all 0.4s;
+    cursor: pointer;
+    background-color: transparent;
+    pointer-events: none;
+
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+  & .delete {
+    margin-left: 13px;
   }
 
   &:hover {
@@ -68,23 +92,55 @@
       transform: translateX(0);
       visibility: visible;
       opacity: 1;
+      pointer-events: visible;
     }
   }
+}
+.edit,
+.delete {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+@media (max-width: 710px) {
+  .row_wrapper {
+    margin-bottom: 15px;
+  }
+  .row {
+    display: grid;
+    grid-template-columns: auto 1fr 100px;
+    grid-template-rows: 25px 25px;
+    grid-template-areas:
+      "card name amount"
+      "card name date";
+  }
+  .name {
+    padding-left: 10px;
+    grid-area: name;
+  }
+  .card {
+    @include adaptiveValue("padding", 12, 0);
+    grid-area: card;
+  }
+  .category {
+    display: none;
+  }
+  .date {
+    grid-area: date;
+    text-align: right;
+    opacity: 0.7;
+  }
+  .amount {
+    grid-area: amount;
+    text-align: right;
 
-  & .edit,
-  & .delete {
-    visibility: hidden;
-    opacity: 0;
-    transform: translateX(200%);
-    transition: all 0.5s;
-    cursor: pointer;
-    background-color: transparent;
-    svg {
-      width: 18px;
-      height: 18px;
+    & .edit,
+    & .delete {
+      display: none;
     }
-  }
-  & .delete {
-    margin-left: 13px;
   }
 }

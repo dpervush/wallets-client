@@ -1,7 +1,8 @@
 @import "styles/vars.scss";
 
 .header {
-  height: 90px;
+  display: block;
+  height: 70px;
   grid-column: span 2;
 }
 .container {
@@ -42,7 +43,6 @@
     justify-content: space-between;
   }
   &_item {
-    margin-left: 55px;
     span {
       margin-left: 10px;
     }
@@ -50,7 +50,12 @@
       transform: translateY(1px);
     }
   }
+  &_item + &_item {
+    margin-left: 55px;
+  }
   &_link {
+    padding: 10px 0;
+
     font-family: $secondFont;
     font-weight: 500;
     font-size: 12px;
@@ -60,5 +65,10 @@
     &.active {
       opacity: 1;
     }
+  }
+}
+@media (max-width: 710px) {
+  .header {
+    display: none;
   }
 }

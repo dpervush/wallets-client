@@ -4,5 +4,16 @@ body {
   color: #ffffff;
 }
 #__next {
-  height: 100%;
+  // height: 100%;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+.swipeable-list-item__content {
+  background-color: transparent;
 }

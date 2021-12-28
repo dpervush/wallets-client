@@ -11,10 +11,13 @@ const PostItem = ({ percentTop, percentBottom }) => {
           style={{ height: percentTop + "%" }}
         ></div>
       </div>
-      <div
-        className={styles.bottom}
-        style={{ height: percentBottom + "%" }}
-      ></div>
+      <div className={styles.bottom}>
+        <div className={styles.bg}></div>
+        <div
+          className={styles.color}
+          style={{ height: percentBottom + "%" }}
+        ></div>
+      </div>
     </div>
   );
 };

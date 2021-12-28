@@ -12,3 +12,6 @@ export { default as SettingsIcon } from "./SettingsIcon";
 export { default as CoinsIcon } from "./CoinsIcon";
 export { default as PlayIcon } from "./PlayIcon";
 export { default as CloseIcon } from "./CloseIcon";
+export { default as LogoutIcon } from "./LogoutIcon";
+export { default as StatisticsIcon } from "./StatisticsIcon";
+export { default as TransactionsIcon } from "./TransactionsIcon";

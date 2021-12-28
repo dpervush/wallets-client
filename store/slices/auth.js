@@ -1,19 +1,39 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import $api from "../../http";
+import { setWithExpiry } from "../../utils/localStorageWithExpiry";
 
 export const login = createAsyncThunk("/login", async (body) => {
-  // const { email, password } = body;
-  return await $api.post("/auth/login", body).then((res) => res.data);
+  return await $api
+    .post("/auth/login", body)
+    .then((res) => {
+      setWithExpiry(
+        "access_token",
+        res.data.accessToken,
+        5 * 24 * 60 * 60 * 1000
+      );
+
+      return res.data;
+    })
+    .catch((error) => console.log(error));
 });
 
 export const registration = createAsyncThunk("/register", async (body) => {
-  // const { email, password } = body;
-  return await $api.post("/auth/register", body).then((res) => res.data);
+  return await $api.post("/auth/register", body).then((res) => {
+    setWithExpiry(
+      "access_token",
+      res.data.accessToken,
+      5 * 24 * 60 * 60 * 1000
+    );
+
+    return res.data;
+  });
 });
 
 export const logout = createAsyncThunk("/logout", async () => {
-  // const { email, password } = body;
-  return await $api.post("/auth/logout").then((res) => res.data);
+  return await $api.post("/auth/logout").then((res) => {
+    localStorage.removeItem("access_token");
+    return res.data;
+  });
 });
 
 export const getMe = createAsyncThunk("/me", async () => {
@@ -26,30 +46,31 @@ const authSlice = createSlice({
     isAuth: false,
     token: null,
     user: {},
-    error: null,
+    error: null
   },
-  reducers: {},
+  reducers: {
+    clearError: (state) => {
+      state.error = null;
+    }
+  },
   extraReducers: {
     [login.fulfilled]: (state, action) => {
       state.isAuth = true;
       state.token = action.payload.accessToken;
       state.user = action.payload.user;
-      localStorage.setItem("token", action.payload.accessToken);
     },
     [login.rejected]: (state, action) => {
-      state.error = action.error;
+      state.error = "Couldn't find your account";
     },
     [registration.fulfilled]: (state, action) => {
       state.isAuth = true;
       state.token = action.payload.accessToken;
-      localStorage.setItem("token", action.payload.accessToken);
     },
     [registration.rejected]: (state, action) => {
-      state.error = action.error;
+      state.error = "That username is taken. Try another.";
     },
     [logout.fulfilled]: (state, action) => {
       state.isAuth = false;
-      localStorage.removeItem("token");
       state.token = null;
     },
     [logout.rejected]: (state, action) => {
@@ -64,8 +85,10 @@ const authSlice = createSlice({
     },
     [getMe.rejected]: (state, action) => {
       state.error = action.error;
-    },
-  },
+    }
+  }
 });
+
+export const { clearError } = authSlice.actions;
 
 export const authReducer = authSlice.reducer;

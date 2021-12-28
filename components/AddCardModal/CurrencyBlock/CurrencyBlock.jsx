@@ -7,9 +7,23 @@ import Button from "../../UI/Button/Button";
 import styles from "./CurrencyBlock.module.scss";
 
 export const CurrencyBlock = ({ onSubmit, register, onClose }) => {
+  const contentRef = React.useRef();
+
+  const handleClickOnDocument = (e) => {
+    if (contentRef.current && !contentRef.current.contains(e.target)) {
+      onClose();
+    }
+  };
+
+  React.useEffect(() => {
+    document.addEventListener("click", handleClickOnDocument);
+
+    return () => document.removeEventListener("click", handleClickOnDocument);
+  }, []);
+
   return (
     <ModalWindow onClose={onClose}>
-      <div className={styles.body}>
+      <div className={styles.body} ref={contentRef}>
         <div className={styles.subtitle}>Choose base currency</div>
         <div className={styles.currencies}>
           <label>

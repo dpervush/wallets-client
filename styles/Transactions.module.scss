@@ -1,13 +1,29 @@
+@import "vars.scss";
+@import "styles/base/mixins.scss";
+
 .content {
-  padding: 35px 50px 0px 50px;
+  // padding: 35px 50px 0px 50px;
+  @include adaptiveValue("padding-top", 35, 15);
+  @include adaptiveValue("padding-left", 50, 10, $containerWidth, 710);
+  @include adaptiveValue("padding-right", 50, 10, $containerWidth, 710);
+  padding-bottom: 20px;
 }
 .filters {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  gap: 10px 15px;
+  flex-wrap: wrap;
 
   margin-bottom: 25px;
 }
-.filter {
-  margin-right: 15px;
+.loader {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.no_data {
+  padding: 30px;
+  font-family: $secondFont;
+  font-size: 18px;
+  text-align: center;
 }

@@ -1,12 +1,17 @@
 @import "/styles/vars.scss";
+@import "styles/base/mixins.scss";
 
 .transactions {
-  padding: 47px 30px 20px 30px;
+  @include adaptiveValue("padding-top", 47, 20, $containerWidth, 710);
+  @include adaptiveValue("padding-right", 30, 30, $containerWidth, 710);
+  @include adaptiveValue("padding-bottom", 20, 30, $containerWidth, 710);
+  @include adaptiveValue("padding-left", 30, 20, $containerWidth, 710);
 }
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 37.5px;
 
   margin-bottom: 22px;
 }
@@ -15,4 +20,35 @@
   font-family: $secondFont;
   font-weight: 500;
   font-size: 12px;
+  color: inherit;
+}
+.body {
+  min-height: 100%;
+}
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 30px;
+}
+.no_data {
+  padding: 30px;
+  font-family: $secondFont;
+  text-align: center;
+}
+@media (max-width: 710px) {
+  .transactions {
+    @include adaptiveValue("max-width", 480, 300, 710);
+    margin: 0 auto;
+
+    padding: 0;
+    @include adaptiveValue("padding-top", 30, 20, 710);
+    @include adaptiveValue("padding-bottom", 30, 30, 710);
+  }
+}
+@media (max-width: 335px) {
+  .transactions {
+    margin: 0;
+  }
 }

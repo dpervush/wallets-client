@@ -10,7 +10,7 @@ export const TypesBlock = ({ register }) => {
             className={`${styles.radio} ${styles.visually_hidden}`}
             {...register("type", { required: true })}
             type="radio"
-            value={"Expense"}
+            value={"expense"}
           />
           <span>Expense</span>
         </label>
@@ -21,7 +21,7 @@ export const TypesBlock = ({ register }) => {
             className={`${styles.radio} ${styles.visually_hidden}`}
             {...register("type", { required: true })}
             type="radio"
-            value={"Income"}
+            value={"income"}
           />
           <span>Income</span>
         </label>

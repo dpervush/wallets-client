@@ -5,34 +5,40 @@ import { useSelector, useDispatch } from "react-redux";
 
 import Layout from "../containers/layout/Layout";
 import ShortStat from "../components/ShortStat/ShortStat";
+import { RoundStat } from "../components/RoundStat/RoundStat";
 import TransactionsShort from "../components/TransactionsShort/TransactionsShort";
 
-import styles from "../styles/Home.module.scss";
 import $api from "../http";
 import { getMe } from "../store/slices/auth";
 import { getValueFromCookie } from "../utils/getValueFromCookie";
+
+import styles from "../styles/Home.module.scss";
+import { getCategories } from "../store/slices/categories";
+import axios from "axios";
 
 const BubbleStat = dynamic(
   () => import("../components/BubbleStat/BubbleStat"),
   { ssr: false }
 );
-const RoundStat = dynamic(() => import("../components/RoundStat/RoundStat"), {
-  ssr: false,
-});
 
 export default function Home({ user }) {
-  const dispatch = useDispatch();
-  const { isAuth } = useSelector(({ auth }) => auth);
+  const { auth } = useSelector(({ auth }) => ({
+    auth
+  }));
 
   const router = useRouter();
 
-  console.log(user);
+  const dispatch = useDispatch();
 
   React.useEffect(() => {
-    if (!isAuth) {
+    dispatch(getCategories());
+  }, []);
+
+  React.useEffect(() => {
+    if (!auth.isAuth) {
       router.push("/login");
     }
-  }, [isAuth]);
+  }, [auth.isAuth]);
 
   return (
     <Layout>
@@ -58,8 +64,12 @@ export const getServerSideProps = async (context) => {
   let isAuth = false;
   let user = {};
 
-  console.log(context.req.headers.cookie);
   const cookie = getValueFromCookie("refreshToken", context.req.headers.cookie);
+
+  const $api = axios.create({
+    withCredentials: true,
+    baseURL: "http://server:8080/api"
+  });
 
   await $api
     .get("/auth/me", { headers: { Authorization: "Bearer " + cookie } })
@@ -68,15 +78,15 @@ export const getServerSideProps = async (context) => {
       user = response.data.currentUser;
     })
     .catch((err) => {
-      // console.log(err);
+      console.log(err);
       isAuth = false;
     });
 
   if (!isAuth) {
     return {
       redirect: {
-        destination: "/login",
-      },
+        destination: "/login"
+      }
     };
   }
   return { props: { user } };

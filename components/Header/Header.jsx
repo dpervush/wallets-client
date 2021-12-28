@@ -15,50 +15,48 @@ const Header = () => {
 
   return (
     <header className={styles.header}>
-      <div className={styles.container}>
-        <div className={styles.inner}>
-          <div className={styles.menu}>
-            <DotsIcon />
-            <span>Wallets</span>
-          </div>
-          <nav className={styles.nav}>
-            <ul className={styles.nav_list}>
-              <li className={styles.nav_item}>
-                <Link href="/">
-                  <a className={cx({ nav_link: true, active: route === "/" })}>
-                    <ChartIcon />
-                    <span>Overview</span>
-                  </a>
-                </Link>
-              </li>
-              <li className={styles.nav_item}>
-                <Link href="/transactions">
-                  <a
-                    className={cx({
-                      nav_link: true,
-                      active: route === "/transactions",
-                    })}
-                  >
-                    Transactions
-                  </a>
-                </Link>
-              </li>
-              <li className={styles.nav_item}>
-                <Link href="/">
-                  <a
-                    className={cx({
-                      nav_link: true,
-                      active: route === "/statistics",
-                    })}
-                  >
-                    Statistics
-                  </a>
-                </Link>
-              </li>
-            </ul>
-          </nav>
-          <UserPanel />
+      <div className={styles.inner}>
+        <div className={styles.menu}>
+          <DotsIcon />
+          <span>Wallets</span>
         </div>
+        <nav className={styles.nav}>
+          <ul className={styles.nav_list}>
+            <li className={styles.nav_item}>
+              <Link href="/">
+                <a className={cx({ nav_link: true, active: route === "/" })}>
+                  <ChartIcon />
+                  <span>Overview</span>
+                </a>
+              </Link>
+            </li>
+            <li className={styles.nav_item}>
+              <Link href="/transactions">
+                <a
+                  className={cx({
+                    nav_link: true,
+                    active: route === "/transactions"
+                  })}
+                >
+                  Transactions
+                </a>
+              </Link>
+            </li>
+            <li className={styles.nav_item}>
+              <Link href="/">
+                <a
+                  className={cx({
+                    nav_link: true,
+                    active: route === "/statistics"
+                  })}
+                >
+                  Statistics
+                </a>
+              </Link>
+            </li>
+          </ul>
+        </nav>
+        <UserPanel />
       </div>
     </header>
   );

@@ -1,0 +1,22 @@
+@import "styles/vars.scss";
+
+.progress_bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  height: 3px;
+  width: 100vw;
+
+  background-color: $blue;
+  animation: progress 1s ease-in-out 0s infinite;
+}
+
+@keyframes progress {
+  0% {
+    width: 0px;
+  }
+  100% {
+    width: 100vw;
+  }
+}

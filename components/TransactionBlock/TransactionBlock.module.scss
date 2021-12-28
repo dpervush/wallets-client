@@ -1,7 +1,8 @@
 @import "styles/vars.scss";
+@import "styles/base/mixins.scss";
 
 .block {
-  margin-bottom: 55px;
+  @include adaptiveValue("margin-bottom", 55, 40);
 
   font-family: $secondFont;
   font-weight: 500;
@@ -40,4 +41,9 @@
 }
 .amount {
   flex: 0 0 165px;
+}
+@media (max-width: 710px) {
+  .header {
+    display: none;
+  }
 }

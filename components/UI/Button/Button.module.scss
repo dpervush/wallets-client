@@ -1,14 +1,16 @@
 @import "styles/vars.scss";
 
 .btn {
+  width: 100%;
   display: inline-flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 
-  border: 2px solid #22305f;
+  border: 1px solid #22305f;
   background-color: transparent;
   border-radius: 25px;
   color: inherit;
+  text-align: center;
 
   &:disabled {
     opacity: 0.5;
@@ -20,6 +22,7 @@
   font-weight: 500;
   font-size: 12px;
   text-transform: uppercase;
+  word-break: keep-all;
 }
 .icon + .text {
   margin-left: 8px;

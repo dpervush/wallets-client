@@ -1,7 +1,11 @@
 @import "styles/vars.scss";
+@import "styles/base/mixins.scss";
 
 .wrapper {
-  padding: 37px 64px 70px 100px;
+  @include adaptiveValue("padding-top", 47, 20, $containerWidth, 710);
+  @include adaptiveValue("padding-right", 64, 30, $containerWidth, 710);
+  @include adaptiveValue("padding-bottom", 70, 30, $containerWidth, 710);
+  @include adaptiveValue("padding-left", 100, 20, $containerWidth, 710);
 }
 .header {
   display: flex;
@@ -17,7 +21,28 @@
   font-size: 12px;
   line-height: 22px;
 }
+.loader {
+  min-height: 157px;
+  margin: 20px;
+
+  text-align: center;
+}
 .posts {
   display: flex;
   justify-content: space-between;
+  flex-direction: row-reverse;
+}
+@media (max-width: 710px) {
+  .wrapper {
+    @include adaptiveValue("max-width", 480, 300, 710);
+    margin: 0 auto;
+
+    @include adaptiveValue("padding-top", 30, 20, 710);
+    @include adaptiveValue("padding-bottom", 30, 30, 710);
+  }
+}
+@media (max-width: 335px) {
+  .wrapper {
+    margin: 0;
+  }
 }

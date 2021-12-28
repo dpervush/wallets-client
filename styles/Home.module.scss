@@ -1,7 +1,19 @@
 .grid {
   display: grid;
-  grid-template-columns: 55% 45%;
-  grid-template-rows: 55% 45%;
+  grid-template-columns: minmax(200px, 550px) minmax(200px, 400px);
+  // grid-template-rows: fit-content(55%) fit-content(45%);
 }
 .block {
+}
+@media (max-width: 710px) {
+  .grid {
+    grid-template-columns: minmax(300px, 710px);
+    padding-bottom: 20px;
+  }
+  .block:nth-child(1) {
+    grid-row: 2 / 3;
+  }
+  .block:nth-child(2) {
+    grid-row: 1 / 2;
+  }
 }

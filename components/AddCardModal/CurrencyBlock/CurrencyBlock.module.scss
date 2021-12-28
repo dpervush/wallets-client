@@ -1,6 +1,11 @@
 @import "styles/vars.scss";
 
 .body {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  height: 100%;
+
   font-family: $secondFont;
   color: #081945;
 }
@@ -27,8 +32,8 @@
   height: 40px;
 }
 .currencies {
+  flex: 1 1 auto;
   display: flex;
-  align-items: center;
   justify-content: space-between;
 
   margin-bottom: 20px;
