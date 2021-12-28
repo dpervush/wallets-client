@@ -1,7 +1,7 @@
 import axios from "axios";
 import { getWithExpiry } from "../utils/localStorageWithExpiry";
 
-export const API_URL = "http://localhost:8080/api";
+export const API_URL = "http://wallets-pt.vercel.app/api";
 
 const $api = axios.create({
   withCredentials: true,
